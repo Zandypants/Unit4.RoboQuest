@@ -4,11 +4,11 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
-// parsing middleware
+// Parsing middleware
 app.use(express.json());
 app.use(express.urlencoded());
 
-// routes
+// Routes
 app.get("/", (req, res) => res.send("Home Page"));
 app.use("/api/v1", require("./api/api.js"));
 app.use("/auth", require("./auth.js"));
@@ -24,7 +24,7 @@ app.use((req, res) => {
   res.status(404).send("Path not found.");
 });
 
-// start
+// Start
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 
 module.exports = app;
