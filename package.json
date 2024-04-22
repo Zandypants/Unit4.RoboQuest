@@ -5,13 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node --watch server.js",
+    "seed": "npx prisma migrate reset && node db/seed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
-    "prisma": "^5.12.1"
+    "@prisma/client": "^5.12.1",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.12.1",
+    "@faker-js/faker": "^8.4.1"
   }
 }
