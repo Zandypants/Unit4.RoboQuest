@@ -1,14 +1,6 @@
 const prisma = require("../db/connection");
 const router = require("express").Router();
-
-async function safeAsync(fn, handleError) {
-  try {
-    await fn();
-  } catch (error) {
-    if (handleError) handleError(error);
-    else console.error(err);
-  }
-}
+const {safeAsync} = require("../helpers.js");
 
 router.get("/robots", (req, res, next) => {
   safeAsync(async () => {

@@ -9,8 +9,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // routes
-app.use("/api/v1", require("./api/api.js"));
 app.get("/", (req, res) => res.send("Home Page"));
+app.use("/api/v1", require("./api/api.js"));
+app.use("/auth", require("./auth.js"));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
